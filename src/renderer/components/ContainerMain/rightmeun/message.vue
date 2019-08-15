@@ -19,57 +19,57 @@
 <script>
 import orderM from '@/components/ContainerMain/rightmeun/message/order'
 export default {
-    components: {
-        "t-a":orderM
-    },
+  components: {
+    't-a': orderM
+  },
   data () {
-      return {
-          item1:true,
-          item2:false,
-          item3:false,
-          item4:false,
-          item5:false,
-          view:'t-a'
-      }
+    return {
+      item1: true,
+      item2: false,
+      item3: false,
+      item4: false,
+      item5: false,
+      view: 't-a'
+    }
   },
   methods: {
-      chikcs1:function(){
-          this.item1=true
-          this.item2=false
-          this.item3=false
-          this.item4=false
-          this.item5=false
-      },
-        chikcs2:function(){
-          this.item1=false
-          this.item2=true
-          this.item3=false
-          this.item4=false
-          this.item5=false
-      },
-        chikcs3:function(){
-         this.item1=false
-          this.item2=false
-          this.item3=true
-          this.item4=false
-          this.item5=false
-      },
-        chikcs4:function(){
-         this.item1=false
-          this.item2=false
-          this.item3=false
-          this.item4=true
-          this.item5=false
-      },
-        chikcs5:function(){
-          this.item1=false
-          this.item2=false
-          this.item3=false
-          this.item4=false
-          this.item5=true
-      },
+    chikcs1: function () {
+      this.item1 = true
+      this.item2 = false
+      this.item3 = false
+      this.item4 = false
+      this.item5 = false
+    },
+    chikcs2: function () {
+      this.item1 = false
+      this.item2 = true
+      this.item3 = false
+      this.item4 = false
+      this.item5 = false
+    },
+    chikcs3: function () {
+      this.item1 = false
+      this.item2 = false
+      this.item3 = true
+      this.item4 = false
+      this.item5 = false
+    },
+    chikcs4: function () {
+      this.item1 = false
+      this.item2 = false
+      this.item3 = false
+      this.item4 = true
+      this.item5 = false
+    },
+    chikcs5: function () {
+      this.item1 = false
+      this.item2 = false
+      this.item3 = false
+      this.item4 = false
+      this.item5 = true
+    }
   }
-};
+}
 </script>
 <style scoped>
 .message-header {

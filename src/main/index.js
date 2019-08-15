@@ -33,15 +33,15 @@ function createWindow () {
     mainWindow = null
   })
 }
-ipcMain.on('min', e => mainWindow.minimize());
+ipcMain.on('min', e => mainWindow.minimize())
 ipcMain.on('max', e => {
   if (mainWindow.isMaximized()) {
     mainWindow.unmaximize()
   } else {
     mainWindow.maximize()
   }
-});
-ipcMain.on('close', e => mainWindow.close());
+})
+ipcMain.on('close', e => mainWindow.close())
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {

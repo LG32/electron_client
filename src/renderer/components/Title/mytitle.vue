@@ -27,20 +27,20 @@
     </el-menu>
 </template>
 <script>
-import Titlebtn from "@/components/Title/title";
+import Titlebtn from '@/components/Title/title'
 export default {
   components: {
     Titlebtn
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
-    back: function() {
-      window.history.back();
+    back: function () {
+      window.history.back()
     }
   }
-};
+}
 </script>
 <style scoped>
 .el-menu {

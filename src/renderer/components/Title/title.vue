@@ -4,39 +4,38 @@
     v-on:click="click"/>
 </template>
 <script>
-  const {ipcRenderer: ipc} = require('electron');
-    const style = {
-        min: {
-            // background: 'green',
-            // top:'10px',
-            right: '90px'
-        },
-        max: {
-            // backgroundColor: 'yellow',
-            // top:'10px',
-            right: '50px'
-        },
-        close: {
-            // backgroundColor: 'black',
-            // top:'10px',
-            right: '10px'
-        }
-    };
-    export default {
-        name: 'Titlebtn',
-        props: ['type'],
-        computed: {
-            style: function () {
-                return style[this.type];
-            }
-        },
-        methods: {
-            click: function () {
-               
-                ipc.send(this.type);
-            }
-        }
+  const {ipcRenderer: ipc} = require('electron')
+  const style = {
+    min: {
+      // background: 'green',
+      // top:'10px',
+      right: '90px'
+    },
+    max: {
+      // backgroundColor: 'yellow',
+      // top:'10px',
+      right: '50px'
+    },
+    close: {
+      // backgroundColor: 'black',
+      // top:'10px',
+      right: '10px'
     }
+  }
+export default {
+    name: 'Titlebtn',
+    props: ['type'],
+    computed: {
+      style: function () {
+        return style[this.type]
+      }
+    },
+    methods: {
+      click: function () {
+        ipc.send(this.type)
+      }
+    }
+  }
 </script>
 <style scoped>
 .titlebtn {

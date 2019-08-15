@@ -14,21 +14,21 @@ import Leftmain from '@/components/ContainerMain/leftmain'
 import Rightmain from '@/components/ContainerMain/rightmain'
 import RightHeader from '@/components/navigation/header'
 export default {
-    components: {
-         'v-title':Title,
-         'v-left':Leftmain,
-         'v-right':Rightmain,
-         'v-header':RightHeader
-    },
-    data () {
-        return {
-           
-        }
-    },
-   created () {
-     
-   }
-};
+  components: {
+    'v-title': Title,
+    'v-left': Leftmain,
+    'v-right': Rightmain,
+    'v-header': RightHeader
+  },
+  data () {
+    return {
+
+    }
+  },
+  created () {
+
+  }
+}
 </script>
 <style scoped>
 

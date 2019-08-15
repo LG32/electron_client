@@ -34,28 +34,28 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       tableData3: []
-    };
+    }
   },
-  created(){
-      var that =this;
-   this.$http
-      .get("/static/meus.json")
-      .then(function(params) {
-         that.tableData3 =  params.data;
-         console.log(params);
+  created () {
+    var that = this
+    this.$http
+      .get('/static/meus.json')
+      .then(function (params) {
+        that.tableData3 = params.data
+        console.log(params)
       })
-      .catch(function(error) {
-         console.log(error);
-      });
+      .catch(function (error) {
+        console.log(error)
+      })
   },
-  methods() {
-   
+  methods () {
+
   },
   methods: {}
-};
+}
 </script>
 <style scoped>
 
