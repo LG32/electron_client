@@ -41,7 +41,7 @@
                         <div class="form-group" @click="freshPort">
                             <label class="label-text">选择串口</label>
                             <i class="el-icon-refresh" style="margin-left: 10px"></i>
-                            <el-select v-model="value" placeholder="请选择">
+                            <el-select v-model="value" placeholder="请选择" value="">
                                 <el-option
                                         v-for="item in options"
                                         :key="item.value"
@@ -56,7 +56,7 @@
                             <el-input type="text" class="form-control" id="BaudRate" v-model="baudRate"></el-input>
                         </div>
                     </div>
-
+                    <!--                    <div>{{flag}}</div>-->
                     <div class="submit-data">
                         <el-button type="primary" @click="serialComm" style="width: 200px" v-if="!flag">连接</el-button>
                         <el-button type="danger" @click="serialClose" style="width: 200px" v-if="flag">关闭</el-button>
@@ -68,9 +68,6 @@
 </template>
 <script>
   import myTable from '../../Table/my-table'
-  // import busOfLink from '../../bus/busOfLink'
-  // eslint-disable-next-line no-undef
-  // var busOfLink = new Vue()
 
   let SerialPort = require('serialport')
   export default {
@@ -78,9 +75,14 @@
     components: {
       myTable
     },
-    beforeMount () {
-      console.log('beforeMount')
-      this.$bus.$emit('getData')
+
+    beforeUpdate () {
+      console.log('beforeUpdate run freshPort')
+      if (this.getOldDataFlag) {
+        this.$bus.$emit('getData')
+        this.getOldDataFlag = false
+      }
+      // this.freshPort()
     },
     methods: {
       freshPort () {
@@ -261,27 +263,25 @@
           height: '539px'
         },
         postObj: null,
-        flag: false
+        flag: false,
+        getOldDataFlag: true
       }
     },
 
     mounted () {
-      this.styleft2.height = `${document.documentElement.clientHeight - 168}px`
-      // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
-      console.log(this.styleft2.height)
       const that = this
+      that.$bus.$emit('getData')
+      that.styleft2.height = `${document.documentElement.clientHeight - 168}px`
+      // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
+      console.log(that.styleft2.height)
       window.onresize = function temp () {
         that.styleft2.height = `${document.documentElement.clientHeight - 168}px`
       }
       this.$bus.$on('postData', (data) => {
         console.log('postData listener')
-        this.flag = data.flag
-        this.portObj = data.portObj
-        this.value = data.comName
-        console.log(data.flag)
-        console.log(data.portObj)
-        console.log(data.comName)
-        console.log(this.flag)
+        that.flag = data.flag
+        that.portObj = data.portObj
+        that.value = data.comName
       })
     }
   }
@@ -316,7 +316,7 @@
         height: 100%;
         padding: 15px;
         background-color: #FAFAFA;
-        box-shadow: -1px 0px 5px #ccc;
+        box-shadow: -1px 0 5px #ccc;
     }
 
     .content-box {

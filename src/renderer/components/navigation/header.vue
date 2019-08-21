@@ -5,7 +5,7 @@
             未连接
             <i class="el-icon-link el-icon--right"></i>
         </el-button>
-        <el-button type="primary" disabled="disabled" v-if="flag" style="float: right; margin-right: 10px">已连接
+        <el-button type="primary" disabled="disabled" v-if="flag" style="float: right; margin-right: 10px">已连接{{comName}}
             <i class="el-icon-link el-icon--right"></i>
         </el-button>
     </div>

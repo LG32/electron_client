@@ -48,7 +48,6 @@
         .get('/static/meus.json')
         .then(function (params) {
           that.tableData3 = params.data
-          console.log(params)
         })
         .catch(function (error) {
           console.log(error)
