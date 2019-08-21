@@ -1,26 +1,10 @@
 <template>
- <el-menu class="el-menu-demo" mode="horizontal"  background-color="#27408B" text-color="#fff" active-text-color="#ffd04b"> 
+ <el-menu class="el-menu-demo" mode="horizontal"  background-color="#27408B" text-color="#fff" active-text-color="#ffd04b">
     <el-menu-item index="0">
       <!-- <img src="/static/image/logo.png" alt=""> -->
       <i class="el-icon-upload"></i>
     </el-menu-item>
-     <el-menu-item index="1">后台管理</el-menu-item>
-         <el-submenu index="2">         
-             <template slot="title">
-           我的消息 
-               </template>            
-                <el-menu-item index="2-1">
-                  订单消息<el-badge class="mark" :value="12" />
-                </el-menu-item>
-                <el-menu-item index="2-2">
-                  客户消息<el-badge class="mark" :value="12" />
-                </el-menu-item>
-                <el-menu-item index="2-3">
-                  系统消息<el-badge class="mark" :value="12" />
-                </el-menu-item>
-            </el-submenu>
-    
-            <el-menu-item index="3">前台管理</el-menu-item>
+     <el-menu-item index="1">模块管理</el-menu-item>
             <Titlebtn type="min" class="min el-icon-minus"/>
             <Titlebtn type="max" class="max el-icon-rank"/>
         <Titlebtn type="close" class="mac el-icon-close" />

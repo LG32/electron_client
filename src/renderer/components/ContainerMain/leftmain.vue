@@ -1,5 +1,5 @@
 <template>
-  <div class="leftmain"  v-bind:style="stylengt">
+  <div class="leftmain"  v-bind:style="styleft">
     <left-navt></left-navt>
 </div>
 </template>
@@ -8,7 +8,7 @@ import Leftnavt from '@/components/ContainerMain/leftmeun/leftnavt'
 export default {
   data () {
     return {
-      stylengt: {
+      styleft: {
         height: '539px'
       }
     }
@@ -26,11 +26,12 @@ export default {
 
   },
   mounted () {
-    this.stylengt.height = `${document.documentElement.clientHeight - 61}px`
+    this.styleft.height = `${document.documentElement.clientHeight - 61}px`
     // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
+    console.log(this.styleft.height)
     const that = this
     window.onresize = function temp1 () {
-      that.stylengt.height = `${document.documentElement.clientHeight - 61}px`
+      that.styleft.height = `${document.documentElement.clientHeight - 61}px`
     }
   }
 }

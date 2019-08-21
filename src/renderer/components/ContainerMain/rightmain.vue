@@ -6,7 +6,7 @@
 <script>
  export default {
    methods: {
- 
+
    },
    data () {
      return {
@@ -18,6 +18,7 @@
    mounted () {
      this.style1.height = `${document.documentElement.clientHeight - 102}px`
      // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
+     console.log(this.style1.height)
      const that = this
      window.onresize = function temp () {
        that.style1.height = `${document.documentElement.clientHeight - 102}px`
@@ -29,12 +30,12 @@
  .rightmain{
   position: fixed;
   left: 21%;
-  top: 102px;
+  top: 135px;
   right: 0;
-  width: 79%;
+  width: 76.5%;
   bottom: 0;
-  padding:0 5px; 
+  padding:0 5px;
   border-radius: 20px;
-  overflow-x:hidden; 
+  overflow-x:hidden;
  }
 </style>

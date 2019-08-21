@@ -1,62 +1,70 @@
 <template>
-  <el-table
-    :data="tableData3"
-    height="250"
-    border
-    style="width: 100%">
-    <el-table-column
-      prop="date"
-      label="日期"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="oderid"
-      label="ID"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="message"
-      label="消息">
-    </el-table-column>
-     <el-table-column
-      prop="addrees"
-      label="收货地址">
-    </el-table-column>
-     <el-table-column
-      prop="phone"
-      label="联系电话">
-    </el-table-column>
-     <el-table-column
-      prop="level"
-      label="用户等级">
-    </el-table-column>
-  </el-table>
+    <el-card style="margin: 15px">
+        <el-table
+                :data="tableData3"
+                height="450"
+                border
+                style="width: 100%"
+                :row-class-name="tableRowClassName">
+            <el-table-column
+                    prop="date"
+                    label="日期"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="order_id"
+                    label="消息ID"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="message"
+                    label="消息">
+            </el-table-column>
+            <el-table-column
+                    prop="address"
+                    label="目标设备">
+            </el-table-column>
+            <el-table-column
+                    prop="serial_id"
+                    label="设备ID">
+            </el-table-column>
+            <el-table-column
+                    prop="state"
+                    label="执行情况">
+            </el-table-column>
+        </el-table>
+    </el-card>
 </template>
 <script>
-export default {
-  data () {
-    return {
-      tableData3: []
+  export default {
+    data () {
+      return {
+        tableData3: []
+      }
+    },
+    created () {
+      var that = this
+      this.$http
+        .get('/static/meus.json')
+        .then(function (params) {
+          that.tableData3 = params.data
+          console.log(params)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    methods: {
+      tableRowClassName ({row, rowIndex}) {
+        if (this.tableData3[rowIndex].state === '失败') {
+          return 'error-row'
+        }
+      }
     }
-  },
-  created () {
-    var that = this
-    this.$http
-      .get('/static/meus.json')
-      .then(function (params) {
-        that.tableData3 = params.data
-        console.log(params)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  },
-  methods () {
-
-  },
-  methods: {}
-}
+  }
 </script>
-<style scoped>
-
+<style>
+    .el-table .error-row {
+        background: #ffebee;
+    }
 </style>
