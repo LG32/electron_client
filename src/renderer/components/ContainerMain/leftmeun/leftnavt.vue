@@ -22,6 +22,18 @@
                 </router-link>
             </el-menu-item>
         </el-submenu>
+
+        <el-submenu index="2">
+            <template slot="title">
+                <i class="el-icon-menu"></i>
+                <span slot="title">测试功能</span>
+            </template>
+            <el-menu-item index="2-1">
+                <router-link to="/index/camera">
+                    <div class="item-tab-item">摄像头</div>
+                </router-link>
+            </el-menu-item>
+        </el-submenu>
     </el-menu>
 
 </template>

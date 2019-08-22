@@ -9,7 +9,6 @@
         </enhanced-table>
     </div>
 </template>
-
 <script>
   import EnhancedTable from '../../Table/EnhancedTable'
   import PrefixPlusText from '../../Table/PrefixPlusText'
@@ -25,6 +24,7 @@
           { prop: 'date', label: '日期' },
           { prop: 'name', label: '姓名' },
           { prop: 'address', label: '地址' },
+          // eslint-disable-next-line no-undef
           { prop: 'change', label: '变化', component: PrefixPlusText },
           { prop: 'trend', label: '趋势' },
           { slot: 'options', message: 'message' }
@@ -45,7 +45,7 @@
           trend: '-10%'
         }]
       }
-  }
+    }
   }
 </script>
 
