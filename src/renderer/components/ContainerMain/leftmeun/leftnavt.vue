@@ -33,6 +33,11 @@
                     <div class="item-tab-item">摄像头</div>
                 </router-link>
             </el-menu-item>
+            <el-menu-item index="2-2">
+                <router-link to="/index/blockly">
+                    <div class="item-tab-item">图形化编程</div>
+                </router-link>
+            </el-menu-item>
         </el-submenu>
     </el-menu>
 
@@ -59,5 +64,4 @@
         color: #fff;
         font-size: 22px;
     }
-
 </style>
