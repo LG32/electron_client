@@ -35,7 +35,12 @@
             </el-menu-item>
             <el-menu-item index="2-2">
                 <router-link to="/index/blockly">
-                    <div class="item-tab-item">图形化编程</div>
+                    <div class="item-tab-item">blockly图形化</div>
+                </router-link>
+            </el-menu-item>
+            <el-menu-item index="2-3">
+                <router-link to="/index/scratchDemo">
+                    <div class="item-tab-item">scratch图形化</div>
                 </router-link>
             </el-menu-item>
         </el-submenu>

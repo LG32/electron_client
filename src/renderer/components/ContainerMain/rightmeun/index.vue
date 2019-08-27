@@ -182,7 +182,7 @@
         }
       },
       /**
-       * 端口关闭函数，未测试
+       * 端口关闭函数
        */
       serialClose () {
         let portObj = this.portObj
