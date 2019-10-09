@@ -11,10 +11,6 @@
     </div>
 </template>
 <script>
-  // import {busOfLink} from '../bus/busOfLink'
-  // eslint-disable-next-line no-undef
-  // let busOfLink = new Vue()
-
   export default {
     data () {
       return {
@@ -39,6 +35,24 @@
           comName: this.comName
         })
       }.bind(this))
+      this.$bus.$on('getDataFromOrder', function () {
+        this.$bus.$emit('postDataFromOrder', {
+          flag: this.flag,
+          portObj: this.portObj,
+          comName: this.comName
+        })
+      }.bind(this))
+      this.$bus.$on('getDataFromSend', function () {
+        this.$bus.$emit('postDataFromSend', {
+          flag: this.flag,
+          portObj: this.portObj,
+          comName: this.comName
+        })
+      }.bind(this))
+    },
+    destroyed () {
+      this.$bus.$off('getData')
+      this.$bus.$off('getDataFromOrder')
     }
   }
 </script>

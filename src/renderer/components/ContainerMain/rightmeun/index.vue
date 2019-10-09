@@ -82,7 +82,6 @@
         this.$bus.$emit('getData')
         this.getOldDataFlag = false
       }
-      // this.freshPort()
     },
     methods: {
       freshPort () {
@@ -270,7 +269,7 @@
 
     mounted () {
       const that = this
-      that.$bus.$emit('getData')
+      // that.$bus.$emit('getData')
       that.styleft2.height = `${document.documentElement.clientHeight - 168}px`
       // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．
       console.log(that.styleft2.height)
@@ -283,6 +282,9 @@
         that.portObj = data.portObj
         that.value = data.comName
       })
+    },
+    destroyed () {
+      this.$bus.$off('postData')
     }
   }
 </script>

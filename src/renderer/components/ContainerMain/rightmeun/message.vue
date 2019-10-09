@@ -1,5 +1,8 @@
 <template>
     <div>
+<!--        <parent>-->
+<!--            <child :parentToChild="postObj"></child>-->
+<!--        </parent>-->
         <div class="message-header">
             <div class="message-header-tab">
                 <div class="header-tab-item" v-bind:class="{active:item2}" @click="chikcs2">发送消息</div>
@@ -27,7 +30,10 @@
         item1: true,
         item2: false,
         view: 't-a',
-        flag: true
+        flag: true,
+        postObj: null,
+        value: '',
+        postFlag: false
       }
     },
     methods: {
@@ -43,6 +49,18 @@
         this.view = 't-b'
         // this.flag = true
       }
+    },
+    mounted () {
+      const that = this
+      that.$bus.$emit('getData')
+      that.$bus.$on('postData', (data) => {
+        that.postFlag = data.flag
+        that.portObj = data.portObj
+        that.value = data.comName
+      })
+    },
+    destroyed () {
+      this.$bus.$off('postData')
     }
   }
 </script>

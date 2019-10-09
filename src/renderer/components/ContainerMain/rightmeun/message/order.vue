@@ -39,8 +39,15 @@
   export default {
     data () {
       return {
-        tableData3: []
+        tableData3: [],
+        portObj: null,
+        portFlag: false,
+        value: ''
       }
+    },
+    beforeUpdate () {
+      console.log('order beforeUpdate run freshPort')
+      this.$bus.$emit('getDataFromOrder')
     },
     created () {
       var that = this
@@ -59,6 +66,19 @@
           return 'error-row'
         }
       }
+    },
+    mounted () {
+      this.$bus.$on('postDataFromOrder', (data) => {
+        console.log('message`s postData listener')
+        console.log(data)
+        this.postFlag = data.flag
+        this.portObj = data.portObj
+        this.value = data.comName
+      })
+    },
+    destroyed () {
+      console.log('order destroyed')
+      this.$bus.$off('postDataFromOrder')
     }
   }
 </script>
